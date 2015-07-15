@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 using Agathas.Storefront.Controllers.JsonDTOs;
@@ -22,7 +26,7 @@ namespace Agathas.Storefront.Controllers.Controllers
 
 		public ActionResult GetProductsByCategory(int categoryId)
 		{
-			GetProductsByCategoryRequest productSearchRequest =	GenerateInitialProductSearchRequestFrom(categoryId);
+			GetProductsByCategoryRequest productSearchRequest = GenerateInitialProductSearchRequestFrom(categoryId);
 
 			GetProductsByCategoryResponse response = _productService.GetProductsByCategory(productSearchRequest);
 
@@ -50,7 +54,7 @@ namespace Agathas.Storefront.Controllers.Controllers
 		{
 			GetProductsByCategoryRequest productSearchRequest = new GetProductsByCategoryRequest();
 
-			productSearchRequest.NumberOfResultsPerPage =  int.Parse(ApplicationSettingsFactory.GetApplicationSettings().NumberOfResultsPerPage);
+			productSearchRequest.NumberOfResultsPerPage = int.Parse(ApplicationSettingsFactory.GetApplicationSettings().NumberOfResultsPerPage);
 			productSearchRequest.CategoryId = categoryId;
 			productSearchRequest.Index = 1;
 			productSearchRequest.SortBy = ProductsSortBy.PriceHighToLow;
@@ -104,14 +108,15 @@ namespace Agathas.Storefront.Controllers.Controllers
 		public ActionResult Detail(int id)
 		{
 			ProductDetailView productDetailView = new ProductDetailView();
-			GetProductRequest request = new GetProductRequest() { ProductId =id };
+			GetProductRequest request = new GetProductRequest() { ProductId = id };
 			GetProductResponse response = _productService.GetProduct(request);
 
-			ProductView productView =response.Product;
+			ProductView productView = response.Product;
 
-			productDetailView.Product =productView;
-			productDetailView.Categories =base.GetCategories();
+			productDetailView.Product = productView;
+			productDetailView.Categories = base.GetCategories();
 
 			return View(productDetailView);
 		}
 	}
+}
