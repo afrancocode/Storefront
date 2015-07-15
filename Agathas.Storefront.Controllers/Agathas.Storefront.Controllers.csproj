@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -56,18 +56,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ProductCatalog\BaseProductCatalogPageView.cs" />
+    <Compile Include="ViewModels\ProductCatalog\HomePageView.cs" />
+    <Compile Include="ViewModels\ProductCatalog\ProductDetailView.cs" />
+    <Compile Include="ViewModels\ProductCatalog\ProductSearchResultView.cs" />
+    <Compile Include="IoCControllerFactory.cs" />
+    <Compile Include="Controllers\ProductCatalogBaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JsonDTOs\JsonModelBinder.cs" />
+    <Compile Include="Controllers\JsonDTOs\JsonRefinementGroup.cs" />
+    <Compile Include="Controllers\JsonDTOs\JsonProductSearchRequest.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Agathas.Storefront.Infrastructure\Agathas.Storefront.Infrastructure.csproj">
-      <Project>{e63521a2-8cd3-4436-b332-5d2b78b2bba9}</Project>
+      <Project>{E63521A2-8CD3-4436-B332-5D2B78B2BBA9}</Project>
       <Name>Agathas.Storefront.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Agathas.Storefront.Model\Agathas.Storefront.Model.csproj">
-      <Project>{a0cf8197-a569-4aaa-91ae-0cdc0125bc9e}</Project>
+      <Project>{A0CF8197-A569-4AAA-91AE-0CDC0125BC9E}</Project>
       <Name>Agathas.Storefront.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Agathas.Storefront.Services\Agathas.Storefront.Services.csproj">
-      <Project>{8916c540-5a1a-4d80-a1e0-a07e4c46e1a7}</Project>
+      <Project>{8916C540-5A1A-4D80-A1E0-A07E4C46E1A7}</Project>
       <Name>Agathas.Storefront.Services</Name>
     </ProjectReference>
   </ItemGroup>
@@ -83,4 +94,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\ProductCatalog\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Controllers\JsonDTOs\" />
+  </ItemGroup>
 </Project>
