@@ -8,8 +8,9 @@ using Agathas.Storefront.Services.ViewModels;
 
 namespace Agathas.Storefront.Controllers.ViewModels.ProductCatalog
 {
-	public abstract class BaseProductCatalogPageView : BasePageView
+	public class BasketDetailView : BaseProductCatalogPageView
 	{
-		public IEnumerable<CategoryView> Categories { get; set; }
+		public BasketView Basket { get; set; }
+		public IEnumerable<DeliveryOptionView> DeliveryOptions { get; set; }
 	}
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-
 using Agathas.Storefront.Controllers.JsonDTOs;
 using Agathas.Storefront.Controllers.ViewModels.ProductCatalog;
 using Agathas.Storefront.Infrastructure.Configuration;
+using Agathas.Storefront.Infrastructure.CookieStorage;
 using Agathas.Storefront.Services.Interfaces;
 using Agathas.Storefront.Services.Messaging.ProductCatalogService;
 using Agathas.Storefront.Services.ViewModels;
@@ -18,8 +18,8 @@ namespace Agathas.Storefront.Controllers.Controllers
 	{
 		private readonly IProductCatalogService _productService;
 
-		public ProductController(IProductCatalogService productService)
-			: base(productService)
+		public ProductController(IProductCatalogService productService, ICookieStorageService cookieStorageService)
+			: base(cookieStorageService, productService)
 		{
 			_productService = productService;
 		}
@@ -39,6 +39,7 @@ namespace Agathas.Storefront.Controllers.Controllers
 		{
 			ProductSearchResultView productSearchResultView = new ProductSearchResultView();
 
+			productSearchResultView.BasketSummary = base.GetBasketSummaryView();
 			productSearchResultView.Categories = base.GetCategories();
 			productSearchResultView.CurrentPage = response.CurrentPage;
 			productSearchResultView.NumberOfTitlesFound = response.NumberOfTitlesFound;
@@ -114,6 +115,7 @@ namespace Agathas.Storefront.Controllers.Controllers
 			ProductView productView = response.Product;
 
 			productDetailView.Product = productView;
+			productDetailView.BasketSummary = base.GetBasketSummaryView();
 			productDetailView.Categories = base.GetCategories();
 
 			return View(productDetailView);

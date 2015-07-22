@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 
 using Agathas.Storefront.Controllers.ViewModels.ProductCatalog;
+using Agathas.Storefront.Infrastructure.CookieStorage;
 using Agathas.Storefront.Services.Interfaces;
 using Agathas.Storefront.Services.Messaging.ProductCatalogService;
 
@@ -15,8 +16,8 @@ namespace Agathas.Storefront.Controllers.Controllers
 	{
 		private readonly IProductCatalogService _productCatalogService;
 
-		public HomeController(IProductCatalogService productCatalogService)
-			: base(productCatalogService)
+		public HomeController(IProductCatalogService productCatalogService, ICookieStorageService cookieStorageService)
+			: base(cookieStorageService, productCatalogService)
 		{
 			_productCatalogService = productCatalogService;
 		}
@@ -25,6 +26,7 @@ namespace Agathas.Storefront.Controllers.Controllers
 		{
 			HomePageView homePageView = new HomePageView();
 			homePageView.Categories = base.GetCategories();
+			homePageView.BasketSummary = base.GetBasketSummaryView();
 
 			GetFeaturedProductsResponse response = _productCatalogService.GetFeaturedProducts();
 			homePageView.Products = response.Products;
