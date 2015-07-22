@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using AutoMapper;
 
 using Agathas.Storefront.Infrastructure.Helpers;
+using Agathas.Storefront.Model.Basket;
 using Agathas.Storefront.Model.Categories;
 using Agathas.Storefront.Model.Products;
+using Agathas.Storefront.Model.Shipping;
 using Agathas.Storefront.Services.ViewModels;
-
 
 namespace Agathas.Storefront.Services
 {
@@ -32,6 +33,10 @@ namespace Agathas.Storefront.Services
 			// Global Money Formatter
 			Mapper.AddFormatter<MoneyFormatter>();
 
+			// Basket
+			Mapper.CreateMap<DeliveryOption, DeliveryOptionView>();
+			Mapper.CreateMap<BasketItem, BasketItemView>();
+			Mapper.CreateMap<Basket, BasketView>();
 		}
 	}
 
