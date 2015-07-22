@@ -86,6 +86,18 @@
     <EmbeddedResource Include="Mapping\ProductSize.hbm.xml" />
     <EmbeddedResource Include="Mapping\ProductTitle.hbm.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mapping\Basket.hbm.xml" />
+    <Content Include="Mapping\BasketItem.hbm.xml" />
+    <Content Include="Mapping\Courier.hbm.xml" />
+    <Content Include="Mapping\Customer.hbm.xml" />
+    <Content Include="Mapping\DeliveryAddress.hbm.xml" />
+    <Content Include="Mapping\DeliveryOption.hbm.xml" />
+    <Content Include="Mapping\IOrderState.hbm.xml" />
+    <Content Include="Mapping\Order.hbm.xml" />
+    <Content Include="Mapping\OrderItem.hbm.xml" />
+    <Content Include="Mapping\ShippingService.hbm.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
