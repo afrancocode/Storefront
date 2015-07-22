@@ -8,6 +8,7 @@ using AutoMapper;
 using Agathas.Storefront.Infrastructure.Helpers;
 using Agathas.Storefront.Model.Basket;
 using Agathas.Storefront.Model.Categories;
+using Agathas.Storefront.Model.Customers;
 using Agathas.Storefront.Model.Products;
 using Agathas.Storefront.Model.Shipping;
 using Agathas.Storefront.Services.ViewModels;
@@ -37,6 +38,10 @@ namespace Agathas.Storefront.Services
 			Mapper.CreateMap<DeliveryOption, DeliveryOptionView>();
 			Mapper.CreateMap<BasketItem, BasketItemView>();
 			Mapper.CreateMap<Basket, BasketView>();
+
+			// Customer
+			Mapper.CreateMap<Customer, CustomerView>();
+			Mapper.CreateMap<DeliveryAddress, DeliveryAddressView>();
 		}
 	}
 
