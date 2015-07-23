@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Agathas.Storefront.Infrastructure.Domain;
+using Agathas.Storefront.Model.Orders;
 
 namespace Agathas.Storefront.Model.Customers
 {
@@ -14,6 +16,7 @@ namespace Agathas.Storefront.Model.Customers
 		public string FirstName { get; set; }
 		public string SecondName { get; set; }
 		public string Email { get; set; }
+		public IList<Order> Orders { get; set; }
 
 		public void AddAddress(DeliveryAddress deliveryAddress)
 		{
