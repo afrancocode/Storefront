@@ -18,5 +18,10 @@ namespace Agathas.Storefront.Infrastructure.Configuration
 		{
 			get { return ConfigurationManager.AppSettings["NumberOfResultsPerPage"]; }
 		}
+
+		public string JanrainApiKey
+		{
+			get { return ConfigurationManager.AppSettings["JanrainApiKey"]; }
+		}
 	}
 }

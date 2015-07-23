@@ -10,5 +10,6 @@ namespace Agathas.Storefront.Infrastructure.Configuration
 	{
 		string LoggerName { get; }
 		string NumberOfResultsPerPage { get; }
+		string JanrainApiKey { get; }
 	}
 }
