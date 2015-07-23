@@ -66,6 +66,12 @@
     <Compile Include="CookieStorage\ICookieStorageService.cs" />
     <Compile Include="Domain\BusinessRule.cs" />
     <Compile Include="Domain\EntityBase.cs" />
+    <Compile Include="Domain\Events\DomainEvents.cs" />
+    <Compile Include="Domain\Events\IDomainEvent.cs" />
+    <Compile Include="Domain\Events\IDomainEventHandler.cs" />
+    <Compile Include="Domain\Events\IDomainEventHandlerFactory.cs" />
+    <Compile Include="Domain\Events\IEnumerableExtensions.cs" />
+    <Compile Include="Domain\Events\StructureMapDomainEventHandlerFactory.cs" />
     <Compile Include="Domain\IAggregateRoot.cs" />
     <Compile Include="Domain\IReadOnlyRepository.cs" />
     <Compile Include="Domain\IRepository.cs" />
