@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Agathas.Storefront.Services.Messaging.CustomerService
+namespace Agathas.Storefront.Services.Messaging.OrderService
 {
-	public class GetCustomerRequest
+	public class CreateOrderRequest
 	{
+		public int DeliveryId { get; set; }
+		public Guid BasketId { get; set; }
 		public string CustomerIdentityToken { get; set; }
-		public bool LoadOrderSummary { get; set; }
 	}
 }

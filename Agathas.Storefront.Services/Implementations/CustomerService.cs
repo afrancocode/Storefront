@@ -68,6 +68,8 @@ namespace Agathas.Storefront.Services.Implementations
 			{
 				response.CustomerFound = true;
 				response.Customer = customer.ConvertToCustomerDetailView();
+				if (request.LoadOrderSummary)
+					response.Orders = customer.Orders.OrderByDescending(o => o.Created).ConvertToOrderSummaryViews();
 			}
 			else
 			{

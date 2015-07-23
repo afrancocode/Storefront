@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 using AutoMapper;
 
 using Agathas.Storefront.Infrastructure.Helpers;
+using Agathas.Storefront.Model;
 using Agathas.Storefront.Model.Basket;
 using Agathas.Storefront.Model.Categories;
 using Agathas.Storefront.Model.Customers;
+using Agathas.Storefront.Model.Orders;
+using Agathas.Storefront.Model.Orders.States;
 using Agathas.Storefront.Model.Products;
 using Agathas.Storefront.Model.Shipping;
 using Agathas.Storefront.Services.ViewModels;
@@ -42,6 +45,27 @@ namespace Agathas.Storefront.Services
 			// Customer
 			Mapper.CreateMap<Customer, CustomerView>();
 			Mapper.CreateMap<DeliveryAddress, DeliveryAddressView>();
+
+			// Orders
+			Mapper.CreateMap<Order, OrderView>();
+			Mapper.CreateMap<OrderItem, OrderItemView>();
+			Mapper.CreateMap<Address, DeliveryAddressView>();
+			Mapper.CreateMap<Order, OrderSummaryView>().ForMember(o => o.IsSubmitted, ov => ov.ResolveUsing<OrderStatusResolver>());
+		}
+	}
+
+	public class OrderStatusResolver : ValueResolver<Order, bool>
+	{
+		protected override bool ResolveCore(Order source)
+		{
+			if (source.Status == OrderStatus.Submitted)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 	}
 
