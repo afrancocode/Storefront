@@ -23,5 +23,16 @@ namespace Agathas.Storefront.Infrastructure.Configuration
 		{
 			get { return ConfigurationManager.AppSettings["JanrainApiKey"]; }
 		}
+
+		public string PayPalBusinessEmail
+		{
+			get { return ConfigurationManager.AppSettings["PayPalBusinessEmail"]; }
+
+		}
+
+		public string PayPalPaymentPostToUrl
+		{
+			get { return ConfigurationManager.AppSettings["PayPalPaymentPostToUrl"]; }
+		}
 	}
 }

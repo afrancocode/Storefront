@@ -8,6 +8,7 @@ namespace Agathas.Storefront.Controllers
 {
 	public enum FormDataKeys
 	{
+		DeliveryAddress,
 		Password,
 		Email,
 		FirstName,
